@@ -7,6 +7,7 @@ export default {
   },
   routers: [
     {
+      path: '',
       name: 'demo',
       component: () => import('./view/demo'),
     },
