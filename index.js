@@ -1,5 +1,3 @@
-import demoBtn from './view/demoBtn.vue';
-
 export default {
   config: {
     age: 20,
@@ -13,7 +11,7 @@ export default {
     },
   ],
   components: {
-    DemoBtn: demoBtn,
+    DemoBtn: () => import('./view/demoBtn.vue'),
   },
   mock: (Mock) => {
     Mock.mock('/api/demo/mock', 'get', () => ({
