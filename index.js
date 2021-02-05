@@ -1,3 +1,5 @@
+import demoBtn from './view/demoBtn.vue';
+
 export default {
   config: {
     age: 20,
@@ -5,16 +7,21 @@ export default {
   },
   routers: [
     {
-      path: '',
-      name: 'demo',
-      component: () => import('./view/demo'),
+      path: '/',
+      component: () => import('./view/index.vue'),
+      children: [
+        {
+          path: 'demo',
+          component: () => import('./view/demo'),
+        },
+      ],
     },
   ],
   components: {
-    DemoBtn: () => import('./view/demoBtn.vue'),
+    DemoBtn: demoBtn,
   },
   mock: (Mock) => {
-    Mock.mock('/api/demo/mock', 'get', () => ({
+    Mock.mock('/demo/mock', 'get', () => ({
       data: 'this is from the mock.'
     }));
   }
