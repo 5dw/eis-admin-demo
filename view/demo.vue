@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import Vue from 'vue';
-
 export default {
   name: 'DemoPage',
   data(){
@@ -22,13 +20,13 @@ export default {
       }
   },
   created(){
-      Vue.prototype.getRequest('/demo').then(d => {
+      this.getRequest('/demo').then(d => {
           if(d && d.data){
               this.data = d.data;
           }
       });
 
-      Vue.prototype.getRequest('/demo/mock').then(d => {
+      this.getRequest('/demo/mock').then(d => {
           if(d && d.data){
               this.mockData = d.data;
           }
